@@ -10,7 +10,7 @@ const initialState = {
 }
 
 export const getContacts = createAsyncThunk("getContacts",async(search,{rejectWithValue})=>{
-    const res = await axios.get("http://localhost:4000/contacts");
+    const res = await axios.get("https://clever-jade-flip-flops.cyclic.app/contacts");
      try{
         return [res.data,search];
     }
@@ -21,7 +21,7 @@ export const getContacts = createAsyncThunk("getContacts",async(search,{rejectWi
 
 export const addContacts = createAsyncThunk("addContacts",async(user,{rejectWithValue})=>{
     const {avatar,name,email,dob,address,occupation} = user
-    const res = await axios.post("http://localhost:4000/contacts",{
+    const res = await axios.post("https://clever-jade-flip-flops.cyclic.app/contacts",{
         avatar,name,email,dob,address,occupation});
      try{
         return res.data;
@@ -32,7 +32,7 @@ export const addContacts = createAsyncThunk("addContacts",async(user,{rejectWith
 })
 export const updateContacts = createAsyncThunk("updateContacts",async(user,{rejectWithValue})=>{
     const {id,avatar,name,email,dob,address,occupation} = user
-    const res = await axios.put(`http://localhost:4000/contacts/${id}`,{
+    const res = await axios.put(`https://clever-jade-flip-flops.cyclic.app/contacts/${id}`,{
         avatar,name,email,dob,address,occupation});
      try{
         return res.data;
@@ -44,7 +44,7 @@ export const updateContacts = createAsyncThunk("updateContacts",async(user,{reje
 
 export const deleteContacts = createAsyncThunk("deleteContacts",async(user,{rejectWithValue})=>{
     const {id} = user
-    const res = await axios.delete(`http://localhost:4000/contacts/${id}`);
+    const res = await axios.delete(`https://clever-jade-flip-flops.cyclic.app/contacts/${id}`);
      try{
         return res.data;
     }
